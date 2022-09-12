@@ -5,7 +5,6 @@ import com.github.b583.catregistry.model.UnregisteredCat;
 import com.github.b583.catregistry.persistence.CatRepository;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-import io.dropwizard.hibernate.UnitOfWork;
 
 @Singleton
 public class CatRegistryService {
