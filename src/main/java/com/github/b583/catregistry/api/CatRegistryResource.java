@@ -3,6 +3,7 @@ package com.github.b583.catregistry.api;
 import com.github.b583.catregistry.service.CatRegistryService;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import io.dropwizard.hibernate.UnitOfWork;
 
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -24,6 +25,7 @@ public class CatRegistryResource {
         this.catRegistryService = catRegistryService;
     }
 
+    @UnitOfWork
     @POST
     public CatDto registerACat(CatDto catDto) {
         final var unregisteredCat = toModel(catDto);

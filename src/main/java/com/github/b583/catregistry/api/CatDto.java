@@ -7,7 +7,7 @@ import javax.validation.constraints.NotNull;
 
 public class CatDto {
 
-    private String id;
+    private Long id;
 
     @NotBlank
     private String name;
@@ -18,7 +18,7 @@ public class CatDto {
     @NotNull
     private Boolean isNice;
 
-    public CatDto(@Nullable String id, @Nonnull String name, @Nonnull String color, @Nonnull Boolean isNice) {
+    public CatDto(@Nullable Long id, @Nonnull String name, @Nonnull String color, @Nonnull Boolean isNice) {
         this.id = id;
         this.name = name;
         this.color = color;
@@ -30,7 +30,7 @@ public class CatDto {
     }
 
     @Nullable
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
