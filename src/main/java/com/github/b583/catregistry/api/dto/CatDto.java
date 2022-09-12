@@ -1,4 +1,4 @@
-package com.github.b583.catregistry.api;
+package com.github.b583.catregistry.api.dto;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;

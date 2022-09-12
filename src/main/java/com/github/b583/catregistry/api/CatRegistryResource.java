@@ -1,5 +1,6 @@
 package com.github.b583.catregistry.api;
 
+import com.github.b583.catregistry.api.dto.CatDto;
 import com.github.b583.catregistry.service.CatRegistryService;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
