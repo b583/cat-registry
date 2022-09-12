@@ -1,5 +1,6 @@
 package com.github.b583.catregistry;
 
+import com.github.b583.catregistry.api.CatRegistryResource;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Environment;
 
@@ -11,6 +12,6 @@ public class CatRegistryMainApplication extends Application<CatRegistryConfigura
 
     @Override
     public void run(CatRegistryConfiguration catRegistryConfiguration, Environment environment) {
-        // to be implemented
+        environment.jersey().register(new CatRegistryResource());
     }
 }
