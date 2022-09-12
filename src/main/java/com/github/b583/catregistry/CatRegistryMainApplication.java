@@ -1,6 +1,7 @@
 package com.github.b583.catregistry;
 
 import com.github.b583.catregistry.api.CatRegistryResource;
+import com.google.inject.Guice;
 import io.dropwizard.Application;
 import io.dropwizard.setup.Environment;
 
@@ -12,6 +13,7 @@ public class CatRegistryMainApplication extends Application<CatRegistryConfigura
 
     @Override
     public void run(CatRegistryConfiguration catRegistryConfiguration, Environment environment) {
-        environment.jersey().register(new CatRegistryResource());
+        final var injector = Guice.createInjector(new MainModule());
+        environment.jersey().register(injector.getInstance(CatRegistryResource.class));
     }
 }
