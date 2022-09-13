@@ -28,7 +28,8 @@ PRIMARY KEY (id)
 
 Create a *config.yaml* file with following contents:
 ```yaml
-shouldRegisterNotNiceCats: false
+service:
+  shouldRegisterNotNiceCats: false
 database:
   driverClass: org.postgresql.Driver
   user: postgres
