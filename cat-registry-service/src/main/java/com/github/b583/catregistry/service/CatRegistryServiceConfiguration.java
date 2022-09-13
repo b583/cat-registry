@@ -1,10 +1,14 @@
 package com.github.b583.catregistry.service;
 
-import jakarta.validation.constraints.NotNull;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
+import javax.validation.constraints.NotNull;
 
 public class CatRegistryServiceConfiguration {
 
     @NotNull
+    @JsonProperty
     private boolean shouldRegisterNotNiceCats;
 
     boolean isShouldRegisterNotNiceCats() {
