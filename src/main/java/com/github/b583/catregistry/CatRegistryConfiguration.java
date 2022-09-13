@@ -9,14 +9,14 @@ import javax.validation.constraints.NotNull;
 public class CatRegistryConfiguration extends Configuration {
 
     @NotNull
-    private boolean shouldRegisterNotNiceKitties;
+    private boolean shouldRegisterNotNiceCats;
 
     @Valid
     @NotNull
     private DataSourceFactory database;
 
-    public boolean isShouldRegisterNotNiceKitties() {
-        return shouldRegisterNotNiceKitties;
+    public boolean isShouldRegisterNotNiceCats() {
+        return shouldRegisterNotNiceCats;
     }
 
     public DataSourceFactory getDatabase() {

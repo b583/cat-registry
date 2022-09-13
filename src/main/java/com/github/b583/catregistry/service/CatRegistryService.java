@@ -22,9 +22,8 @@ public class CatRegistryService {
     }
 
     public RegisteredCat registerCat(UnregisteredCat unregisteredCat) {
-        if (isFalse(configuration.isShouldRegisterNotNiceKitties()) && isFalse(unregisteredCat.isNice())) {
-            // TODO handle exception so something more elegant than HTTP 500 is returned
-            throw new NotNiceKittyException();
+        if (isFalse(configuration.isShouldRegisterNotNiceCats()) && isFalse(unregisteredCat.isNice())) {
+            throw new NotNiceCatException();
         }
 
         return catRepository.save(unregisteredCat);
