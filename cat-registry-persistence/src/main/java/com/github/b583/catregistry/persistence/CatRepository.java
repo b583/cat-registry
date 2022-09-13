@@ -2,6 +2,7 @@ package com.github.b583.catregistry.persistence;
 
 import com.github.b583.catregistry.model.RegisteredCat;
 import com.github.b583.catregistry.model.UnregisteredCat;
+import com.github.b583.catregistry.persistence.entity.CatEntity;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import io.dropwizard.hibernate.AbstractDAO;

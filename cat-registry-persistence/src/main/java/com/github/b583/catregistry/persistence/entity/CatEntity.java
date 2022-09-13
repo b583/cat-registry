@@ -1,4 +1,4 @@
-package com.github.b583.catregistry.persistence;
+package com.github.b583.catregistry.persistence.entity;
 
 import javax.persistence.*;
 import java.io.Serializable;
