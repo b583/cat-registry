@@ -6,7 +6,6 @@ import com.github.b583.catregistry.model.UnregisteredCat;
 import com.github.b583.catregistry.persistence.CatRepository;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-import org.apache.commons.lang3.BooleanUtils;
 
 import static org.apache.commons.lang3.BooleanUtils.isFalse;
 
