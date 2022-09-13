@@ -4,4 +4,5 @@ module cat.registry.persistence {
     requires com.google.guice;
     requires org.hibernate.orm.core;
     requires cat.registry.model;
+    exports com.github.b583.catregistry.persistence;
 }
