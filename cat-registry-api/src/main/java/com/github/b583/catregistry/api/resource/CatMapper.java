@@ -1,5 +1,6 @@
-package com.github.b583.catregistry.api;
+package com.github.b583.catregistry.api.resource;
 
+import com.github.b583.catregistry.api.CatDto;
 import com.github.b583.catregistry.model.RegisteredCat;
 import com.github.b583.catregistry.model.UnregisteredCat;
 

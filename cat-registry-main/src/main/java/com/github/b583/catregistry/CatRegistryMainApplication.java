@@ -1,15 +1,17 @@
 package com.github.b583.catregistry;
 
-import com.github.b583.catregistry.api.CatRegistryResource;
-import com.github.b583.catregistry.api.NotNiceCatExceptionMapper;
+import com.github.b583.catregistry.api.WebResource;
 import com.github.b583.catregistry.persistence.entity.EntityTypes;
 import com.google.inject.Guice;
+import com.google.inject.Key;
 import io.dropwizard.Application;
 import io.dropwizard.db.DataSourceFactory;
 import io.dropwizard.hibernate.HibernateBundle;
 import io.dropwizard.hibernate.SessionFactoryFactory;
 import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
+
+import java.util.Set;
 
 class CatRegistryMainApplication extends Application<CatRegistryMainConfiguration> {
 
@@ -34,7 +36,6 @@ class CatRegistryMainApplication extends Application<CatRegistryMainConfiguratio
         final var injector = Guice.createInjector(
                 new MainModule(catRegistryMainConfiguration, hibernateBundle.getSessionFactory()));
 
-        environment.jersey().register(injector.getInstance(CatRegistryResource.class));
-        environment.jersey().register(injector.getInstance(NotNiceCatExceptionMapper.class));
+        injector.getInstance(new Key<Set<WebResource>>() {}).forEach(webResource -> environment.jersey().register(webResource));
     }
 }
