@@ -1,6 +1,7 @@
 package com.github.b583.catregistry;
 
 import com.github.b583.catregistry.api.CatRegistryResource;
+import com.github.b583.catregistry.api.NotNiceKittyExceptionMapper;
 import com.github.b583.catregistry.persistence.entity.CatEntity;
 import com.google.inject.Guice;
 import io.dropwizard.Application;
@@ -31,5 +32,6 @@ public class CatRegistryMainApplication extends Application<CatRegistryConfigura
     public void run(CatRegistryConfiguration catRegistryConfiguration, Environment environment) {
         final var injector = Guice.createInjector(new MainModule(hibernateBundle.getSessionFactory()));
         environment.jersey().register(injector.getInstance(CatRegistryResource.class));
+        environment.jersey().register(injector.getInstance(NotNiceKittyExceptionMapper.class));
     }
 }
