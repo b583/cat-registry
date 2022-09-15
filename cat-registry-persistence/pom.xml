@@ -12,16 +12,17 @@
     <artifactId>cat-registry-persistence</artifactId>
     <dependencies>
         <dependency>
-            <groupId>org.example</groupId>
-            <artifactId>cat-registry-model</artifactId>
+            <groupId>javax.persistence</groupId>
+            <artifactId>javax.persistence-api</artifactId>
         </dependency>
         <dependency>
             <groupId>com.google.inject</groupId>
             <artifactId>guice</artifactId>
         </dependency>
+
         <dependency>
-            <groupId>io.dropwizard</groupId>
-            <artifactId>dropwizard-hibernate</artifactId>
+            <groupId>org.example</groupId>
+            <artifactId>cat-registry-model</artifactId>
         </dependency>
     </dependencies>
 

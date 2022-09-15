@@ -5,19 +5,20 @@ import com.github.b583.catregistry.model.UnregisteredCat;
 import com.github.b583.catregistry.persistence.entity.CatEntity;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
-import io.dropwizard.hibernate.AbstractDAO;
-import org.hibernate.SessionFactory;
+
+import javax.persistence.EntityManagerFactory;
 
 @Singleton
-public class CatRepository extends AbstractDAO<CatEntity> {
+public class CatRepository extends AbstractRepository<CatEntity> {
 
     @Inject
-    CatRepository(SessionFactory sessionFactory) {
-        super(sessionFactory);
+    CatRepository(EntityManagerFactory entityManagerFactory) {
+        super(entityManagerFactory, CatEntity.class);
     }
 
     public RegisteredCat save(UnregisteredCat unregisteredCat) {
-        final var savedCatEntity = persist(toCatEntity(unregisteredCat));
+        final var catEntity = toCatEntity(unregisteredCat);
+        final var savedCatEntity = executeInSession(() -> persist(catEntity));
         return toRegisteredCat(savedCatEntity);
     }
 

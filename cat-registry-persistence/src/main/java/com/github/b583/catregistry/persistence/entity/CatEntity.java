@@ -1,11 +1,10 @@
 package com.github.b583.catregistry.persistence.entity;
 
 import javax.persistence.*;
-import java.io.Serializable;
 
 @Entity
 @Table(name = "cat", schema = "cat")
-public class CatEntity implements Serializable {
+public class CatEntity implements AnEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,6 +30,7 @@ public class CatEntity implements Serializable {
     protected CatEntity() {
     }
 
+    @Override
     public Long getId() {
         return id;
     }
