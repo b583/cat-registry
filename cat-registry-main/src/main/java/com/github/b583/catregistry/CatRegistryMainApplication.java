@@ -15,7 +15,8 @@ import java.util.Set;
 
 class CatRegistryMainApplication extends Application<CatRegistryMainConfiguration> {
 
-    private final HibernateBundle<CatRegistryMainConfiguration> hibernateBundle = new HibernateBundle<>(EntityTypes.getEntityTypes(), new SessionFactoryFactory()) {
+    private final HibernateBundle<CatRegistryMainConfiguration> hibernateBundle =
+            new HibernateBundle<>(EntityTypes.getEntityTypes(), new SessionFactoryFactory()) {
         @Override
         public DataSourceFactory getDataSourceFactory(CatRegistryMainConfiguration configuration) {
             return configuration.getDatabase();
