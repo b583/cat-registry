@@ -9,6 +9,7 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 
 import static java.util.Objects.isNull;
+import static org.apache.commons.lang3.BooleanUtils.isFalse;
 
 abstract class AbstractRepository<E extends AnEntity> {
 
@@ -31,7 +32,7 @@ abstract class AbstractRepository<E extends AnEntity> {
         if (isNull(entityManager)) {
             throw new PersistenceException("Unexpectedly EntityManager is null. Did you wrap your code in executeInSession(Supplier<R>)?");
         }
-        if (!entityManager.isOpen()) {
+        if (isFalse(entityManager.isOpen())) {
             throw new PersistenceException("Unexpectedly EntityManager is closed.");
         }
         return entityManager;
