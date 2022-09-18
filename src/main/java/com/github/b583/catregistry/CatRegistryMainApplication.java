@@ -30,7 +30,8 @@ public class CatRegistryMainApplication extends Application<CatRegistryConfigura
 
     @Override
     public void run(CatRegistryConfiguration catRegistryConfiguration, Environment environment) {
-        final var injector = Guice.createInjector(new MainModule(hibernateBundle.getSessionFactory()));
+        final var injector = Guice.createInjector(
+                new MainModule(catRegistryConfiguration, hibernateBundle.getSessionFactory()));
         environment.jersey().register(injector.getInstance(CatRegistryResource.class));
         environment.jersey().register(injector.getInstance(NotNiceCatExceptionMapper.class));
     }
